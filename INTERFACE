@@ -1,0 +1,11 @@
+EasyDB.open(key).all()                        // returns all records
+                .where(criteria)              // returns all records that match `criteria`
+                .by(index, value)             // returns all records whose `index` matches `value`
+                .limit(amount, offset, order) // returns up to `amount` records
+                .update(data)                 // updates or adds `data` to the object store
+                .insert(data)                 // adds `data` to the object store
+                .clear()                      // clears all records under `key`
+
+EasyDB.get(key)                               // alias for EasyDB.open
+
+EasyDB.clear(key)                             // alias for EasyDB.open(key).clear()
