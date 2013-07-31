@@ -145,13 +145,13 @@ TransactionWrapper.prototype.all = function getAllItems() {
  */
 TransactionWrapper.prototype.by = function getBy(index, value) {
   var def = new $.Deferred(),
-      tw = this;
+      tw  = this;
 
   tw.openConnection().then(function(db) {
-    var data = [],
-        os = tw.getObjectStore(db),
-        idx = os.index(index),
-        req = idx.get(value);
+    var data  = [],
+        os    = tw.getObjectStore(db),
+        idx   = os.index(index),
+        req   = idx.get(value);
 
     req.onsuccess = function(e) {
       var cur = e.target.result;
@@ -172,24 +172,60 @@ TransactionWrapper.prototype.by = function getBy(index, value) {
 };
 
 /**
- * INCOMPLETE
  * Returns up to <code>number</code> records, starting from <code>offset</code>
  * (Default 0), in <code>order</code> (Default DESC).
  *
- * @param <Number> number   the number of records to return
- * @param <Number> [offset] the offset from the begining of the list
- * @param <String> [order]  the order to search by
+ * @param <Number> number       the number of records to return
+ * @param <Number> [offset=0]   the offset from the begining of the list
+ * @param <String> [order=DESC] the order to search by
  *
  * @return <Array> up to <code>number</code> records.
  */
 TransactionWrapper.prototype.limit = function limit(number, offset, order) {
-  var def = new $.Deferred();
+  var def = new $.Deferred(),
+      tw  = this;
+
+  if(!offset) { offset = 0; }
+
+  if(order) {
+    switch(order.toLowerCase()) {
+      case "asc":
+        order = "prev";
+        break;
+      case "desc":
+        order = "next";
+    }
+  } else {
+    order = "next";
+  }
+
+  tw.openConnection().then(function(db) {
+    var data  = [],
+        os    = tw.getObjectStore(db),
+        req   = os.openCursor(null, order);
+
+    req.onsuccess = function(e) {
+      var cur = e.target.result;
+
+      if(!cur || data.length == number) {
+        def.resolve(data);
+        return;
+      }
+      if(offset == 0) {
+        data.push(cur.value);
+      } else {
+        offset--;
+      }
+      cur.continue();
+    };
+
+    req.onerror = handleError(def);
+  });
 
   return def;
 };
 
 /**
- * INCOMPLETE
  * Returns all records that match the <code>filter</code>.
  *
  * @param <Object> filter the parameters to filter by
@@ -197,7 +233,28 @@ TransactionWrapper.prototype.limit = function limit(number, offset, order) {
  * @return <Array> all records that match the <code>filter</code>
  */
 TransactionWrapper.prototype.where = function where(filter) {
-  var def = new $.Deferred();
+  var def = new $.Deferred();,
+      tw = this;
+
+  tw.openConnection().then(function(db) {
+    var data = [],
+        os = tw.getObjectStore(db),
+        req = os.openCursor();
+
+    req.onsuccess = function(e) {
+      var cur = e.target.result;
+
+      if(!cur) {
+        def.resolve(data);
+        return;
+      }
+
+      data = _.union(_.where([cur.value], filter));
+      cur.continue();
+    };
+
+    req.onerror = handleError(def);
+  });
 
   return def;
 };

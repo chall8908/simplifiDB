@@ -1,4 +1,6 @@
 EasyDB.open(key).all()                        // returns all records
+                .first()                      // returns the first record
+                .last()                       // returns the last record
                 .where(criteria)              // returns all records that match `criteria`
                 .by(index, value)             // returns all records whose `index` matches `value`
                 .limit(amount, offset, order) // returns up to `amount` records
@@ -9,3 +11,21 @@ EasyDB.open(key).all()                        // returns all records
 EasyDB.get(key)                               // alias for EasyDB.open
 
 EasyDB.clear(key)                             // alias for EasyDB.open(key).clear()
+
+
+// Database Schema
+
+{
+  connection: [databaseName, versionNumber],
+  schema: [
+    // each object in here defines a 'table'
+    {
+      name: tableName,
+      keyPath: keyName, // Optional
+      indexes: [
+        // each array defines an index searchable with the 'by' method
+        [indexName, indexKey, options]
+      ]
+    }
+  ]
+}
