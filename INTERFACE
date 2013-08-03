@@ -18,11 +18,11 @@ EasyDB.clear(key)                             // alias for EasyDB.open(key).clea
 {
   connection: [databaseName, versionNumber],
   schema: [
-    // each object in here defines a 'table'
+    // each object here defines a 'table'
     {
       name: tableName,
-      keyPath: keyName, // Optional
-      indexes: [
+      settings: {keyPath: keyName}, // Optional
+      indexes: [                    // Optional
         // each array defines an index searchable with the 'by' method
         [indexName, indexKey, options]
       ]
