@@ -10,10 +10,6 @@ EasyDB Currently has the following dependencies:
 * [jQuery](http://jquery.com/) - Used to provide nicer callbacks via their Deferred interface.
 * [Lo-Dash](http://lodash.com/) - Underscore.js should also work.
 
-Pipeline
---------
-* Provide version without jQuery and Lo-Dash as dependencies.
-
 How to use - The Basics
 -----------------------
 EasyDB was designed to be easy and read well.  It uses an [ActiveRecord](http://api.rubyonrails.org/classes/ActiveRecord/Base.html) style interface, so Ruby on Rails developers should be right at home.  Even if you've never encountered ActiveRecord, the syntax is pretty easy to understand.
