@@ -211,7 +211,7 @@ TransactionWrapper.prototype.limit = function limit(number, offset, order) {
         def.resolve(data);
         return;
       }
-      if(offset == 0) {
+      if(offset === 0) {
         data.push(cur.value);
       } else {
         offset--;
@@ -233,7 +233,7 @@ TransactionWrapper.prototype.limit = function limit(number, offset, order) {
  * @return <Array> all records that match the <code>filter</code>
  */
 TransactionWrapper.prototype.where = function where(filter) {
-  var def = new $.Deferred();,
+  var def = new $.Deferred(),
       tw = this;
 
   tw.openConnection().then(function(db) {

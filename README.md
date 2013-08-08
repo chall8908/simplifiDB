@@ -16,7 +16,7 @@ Pipeline
 
 How to use - The Basics
 -----------------------
-EasyDB was designed to be easy and read well.  It uses an [ActiveRecord](http://link.goes.here) style interface, so Ruby on Rails developers should be right at home.  Even if you've never encountered ActiveRecord, the syntax is pretty easy to understand.
+EasyDB was designed to be easy and read well.  It uses an [ActiveRecord](http://api.rubyonrails.org/classes/ActiveRecord/Base.html) style interface, so Ruby on Rails developers should be right at home.  Even if you've never encountered ActiveRecord, the syntax is pretty easy to understand.
 
 *Let's get started.*
 
@@ -101,7 +101,7 @@ con.update({
 });
 
 con.all().then(function(everything) {
-  console.log(everything); // [{ id: 1, foo: "hi", bar: "everyone" }]
+  console.log(everything); // [{ id: 1, bar: "everyone" }]
 });
 ````
 

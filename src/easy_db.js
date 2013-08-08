@@ -15,10 +15,10 @@ function EasyDB(settings) {
 
   // Open a connection to the DB to perform any upgrades
   this.open().openDatabase();
-};
+}
 
 EasyDB.prototype.testSettings = {
-  connection: ['easy_db', 1].
+  connection: ['easy_db', 1],
   schema: [
     {
       name: "sample_table",
@@ -63,4 +63,4 @@ EasyDB.prototype.get = EasyDB.prototype.open;
  */
 EasyDB.prototype.clear = function clear(key) {
   new TransactionWrapper(key, this.settings).clear();
-}
+};

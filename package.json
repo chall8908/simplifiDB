@@ -1,0 +1,43 @@
+{
+  "name": "EasyDB",
+  "version": "0.0.1",
+  "description": "Wrapper around IndexedDB providing saner access and setup methods",
+  "main": "easy_db.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/chall8908/easy_db.git"
+  },
+  "keywords": [
+    "indexeddb",
+    "easy",
+    "db",
+    "easydb",
+    "database",
+    "front",
+    "end",
+    "storage",
+    "local",
+    "persistant",
+    "temporary",
+    "session"
+  ],
+  "author": "Chris Hall",
+  "license": "CC-BY-SA",
+  "bugs": {
+    "url": "https://github.com/chall8908/easy_db/issues"
+  },
+  "dependencies": {
+    "jquery": ">=1.5",
+    "lodash": "1.3.x"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.6.2",
+    "grunt-contrib-nodeunit": "~0.2.0",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-uglify": "~0.2.2"
+  }
+}
