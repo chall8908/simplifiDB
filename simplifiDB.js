@@ -1,5 +1,5 @@
-/*! EasyDB v0.0.1 by Chris Hall
- * Packaged on 2013-08-07
+/*! SimplifiDB v0.0.1 by Chris Hall
+ * Packaged on 2013-08-17
  * License: CC-BY-SA
  * https://github.com/chall8908/easy_db
  */
