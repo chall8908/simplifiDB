@@ -1,22 +1,22 @@
-EasyDB
+SimplifiDB
 ======
-EasyDB is a wrapper around IndexedDB.  It provides easier setup of and access to data in an IndexedDB.
+SimplifiDB is a wrapper around IndexedDB.  It provides easier setup of and access to data in an IndexedDB.
 
 Requirements
 ------------
 
-EasyDB Currently has the following dependencies:
+SimplifiDB Currently has the following dependencies:
 
 * [jQuery](http://jquery.com/) - Used to provide nicer callbacks via their Deferred interface.
 * [Lo-Dash](http://lodash.com/) - Underscore.js should also work.
 
 How to use - The Basics
 -----------------------
-EasyDB was designed to be easy and read well.  It uses an [ActiveRecord](http://api.rubyonrails.org/classes/ActiveRecord/Base.html) style interface, so Ruby on Rails developers should be right at home.  Even if you've never encountered ActiveRecord, the syntax is pretty easy to understand.
+SimplifiDB was designed to be easy and read well.  It uses an [ActiveRecord](http://api.rubyonrails.org/classes/ActiveRecord/Base.html) style interface, so Ruby on Rails developers should be right at home.  Even if you've never encountered ActiveRecord, the syntax is pretty easy to understand.
 
 *Let's get started.*
 
-The first thing you need to do is setup your database.  Configuring your connection and schema is very easy and all the actual configuration work is handled by EasyDB.  Configuration settings are passed into EasyDB when you instantiate it.
+The first thing you need to do is setup your database.  Configuring your connection and schema is very easy and all the actual configuration work is handled by SimplifiDB.  Configuration settings are passed into SimplifiDB when you instantiate it.
 
 ````javascript
 // See the INTERFACE file for descriptions of these fields
@@ -26,7 +26,7 @@ var settings = {
         { name: 'test_table' }
       ]
     },
-    db = new EasyDB(settings);
+    db = new SimplifiDB(settings);
 ````
 
 From here, you'll want to add data into your table.
@@ -103,7 +103,7 @@ con.all().then(function(everything) {
 
 Reading the important bytes
 ---------------------------
-Grabbing all the data in a table like we've been doing is very inefficient, especially when you only want one or two records.  To combat this, EasyDB provides a few handy accessor methods that give you just what you want.
+Grabbing all the data in a table like we've been doing is very inefficient, especially when you only want one or two records.  To combat this, SimplifiDB provides a few handy accessor methods that give you just what you want.
 
 * ````first()```` - grabs the first record in the table
 * ````last()```` - grabs the last record in the table
@@ -112,4 +112,4 @@ Grabbing all the data in a table like we've been doing is very inefficient, espe
 
 License
 -------
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">EasyDB</span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Chris Hall</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">SimplifiDB</span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Chris Hall</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
